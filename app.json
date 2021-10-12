@@ -1,0 +1,12 @@
+{
+  "name": "cupomFiscalWeb",
+  "displayName": "cupomFiscalWeb",
+  "expo": {
+    "name": "cupomFiscalWeb",
+    "slug": "cupomFiscalWeb",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
