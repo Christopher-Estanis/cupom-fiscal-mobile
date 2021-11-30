@@ -14,6 +14,7 @@ import theme from './src/global/styles/theme'
 import Camera from './src/screens/Camera'
 
 import { AuthProvider } from './src/hooks/auth'
+import { CuponProvider } from './src/hooks/cupon'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,8 +28,10 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <FlashMessage />
-        <AuthProvider> 
-          <Routes />
+        <AuthProvider>
+          <CuponProvider>
+            <Routes />
+          </ CuponProvider> 
         </ AuthProvider> 
     </ThemeProvider>
   )

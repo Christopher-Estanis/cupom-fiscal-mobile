@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Camera } from 'expo-camera'
 
+
 const Dashboad = () => {
   const cameraRef = useRef(null)
   const [type, setType] = useState(Camera.Constants.Type.back)
@@ -28,6 +29,10 @@ const Dashboad = () => {
     } 
   }
 
+  const handleGalery = async (data) => {
+    console.log({ data })
+  }
+
   useEffect(() => {
     handlePermission()
   }, [])
@@ -38,7 +43,7 @@ const Dashboad = () => {
   
   return (
     <View style={{ flex: 1, justifyContent: 'center' }}>
-      <Camera 
+      {/* <Camera 
         style={{ flex: 1 }}
         type={type}
         ref={cameraRef}
@@ -47,19 +52,20 @@ const Dashboad = () => {
           <TouchableOpacity style={{ position: 'absolute', bottom: 20, left: 20 }} onPress={handleCameraType} >
             <Text style={{ fontSize: 20, marginBottom: 13, color: '#FFF' }}>Trocar</Text>
           </TouchableOpacity>
+          
         </View>
-      </Camera>
-
-      <TouchableOpacity onPress={takePicture} style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#fefefe',
-          margin: 20,
-          borderRadius: 10,
-          height: 50
+      </Camera> */}
+      
+      {/* <TouchableOpacity onPress={takePicture} style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fefefe',
+        margin: 20,
+        borderRadius: 10,
+        height: 50
       }}>
         <FontAwesome name='camera' size={23} color='#FFF' />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   )
 }

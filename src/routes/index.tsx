@@ -3,17 +3,34 @@ import { NavigationContainer } from '@react-navigation/native'
 
 import UnauthRoutes from './unauth.routes'
 import AuthRoutes from './auth.routes'
+import CuponDetail from '../screens/CuponDetail'
 
 import { useAuth } from '../hooks/auth'
+import { useCupon } from '../hooks/cupon'
 
 const Routes = () => {
   const { user } = useAuth()
+  const { cupon } = useCupon()
+
 
   console.log({ id: user.id })
 
+  const handleRoute = () => {
+    if (cupon?._id) {
+      return <CuponDetail />
+    }
+
+    // if (user?.id) {
+      return <AuthRoutes />
+    // }
+
+    // return <UnauthRoutes />
+  }
+
   return (
     <NavigationContainer>
-      {user.id ? <AuthRoutes /> : <UnauthRoutes />}
+      {handleRoute()}
+      {/* {user.id ? <AuthRoutes /> : <UnauthRoutes />} */}
     </NavigationContainer>
   )
 }
