@@ -1,10 +1,11 @@
 import React from 'react'
-// import { Text } from 'react-native'
+import { View, Image } from 'react-native'
+import dayjs from 'dayjs'
 import { RectButtonProps } from 'react-native-gesture-handler'
 
 import { useCupon } from '../../hooks/cupon'
 
-import { Card, Text } from './styles'
+import { Card, Text, Title, ImageContainer } from './styles'
 
 interface Props extends RectButtonProps {
   cupon: {
@@ -14,6 +15,7 @@ interface Props extends RectButtonProps {
     store?: string
     createdAt?: Date
     updatedAt?: Date 
+    image?: string
     items?: {
       _id: string
       name: string
@@ -28,10 +30,18 @@ const Dashboad = ({ cupon, ...rest }: Props) => {
   
   return (
     <Card {...rest} onPress={() => updateCupon({ cupon })} >
-      <Text>Cupon {cupon?.number}</Text>
-      <Text>{cupon?.store}</Text>
-      <Text>Itens: {cupon?.itemsQuantity}</Text>
-      <Text>{cupon?.createdAt}</Text>
+      <ImageContainer > 
+        <Image 
+          source={{ uri: cupon.image || 'https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg' }}
+          resizeMode='contain'
+          style={{ width: '100%', height: '100%'}}
+        />
+      </ImageContainer>
+      <View style={{ display: 'flex', flexDirection: 'column', flex: 2 }}>
+        <Title>Cupon {cupon?.number}</Title>
+        <Text>Itens: {cupon?.itemsQuantity}</Text>
+      </View>
+      <Text>{dayjs(cupon?.createdAt).format('DD/MM/YYYY')}</Text>
     </Card>
   )
 }

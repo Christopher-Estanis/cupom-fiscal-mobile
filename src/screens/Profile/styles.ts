@@ -21,8 +21,8 @@ export const PhotoContainer = styled.View`
   align-items: center;
 
   background-color: ${({ theme }) => theme.colors.secondary};
-  border-bottom-left-radius: 35%;
-  border-bottom-right-radius: 35%;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 90px;
 `
 
 export const ProfileDescription = styled.View`

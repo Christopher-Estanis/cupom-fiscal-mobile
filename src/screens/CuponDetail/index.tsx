@@ -10,48 +10,12 @@ import { Container, Title, HeaderContainer, InfoContainer, Description } from '.
 const CuponDetail = () => {
   const { updateCupon, cupon } = useCupon()
   
-  const tests = {
-    cuponId: 'f1f1f33f5wq0e8qwe1',
-    cuponNumber: 32,
-    store: 'Loja seu zé',
-    storeId: 'f1f1f33f5wq0e8qwe7',
-    date: '2021-10-27',
-    quantity: 5,
-  }
-
-  const itens = [
-    {
-      itemId: 'dfasdf',
-      name: 'Leite integral',
-      value: 4.5,
-      quantity: 1
-    },
-    {
-      itemId: 'dfasdf',
-      name: 'Leite integral',
-      value: 4.5,
-      quantity: 1
-    },
-    {
-      itemId: 'dfasdf',
-      name: 'Leite integral',
-      value: 4.5,
-      quantity: 1
-    },
-    {
-      itemId: 'dfasdf',
-      name: 'Leite integral',
-      value: 4.5,
-      quantity: 1
-    }
-  ]
-  
   return (
     <Container contentContainerStyle={{ alignItems: 'center' }}>
       <HeaderContainer> 
         <TouchableOpacity style={{ position: 'absolute', bottom: 20, left: 20}} onPress={() => updateCupon({ _id: undefined })}  >
           <Image 
-            source={require('../../assets/icons/home.png')}
+            source={require('../../assets/icons/arrow-left-45-32.png')}
             resizeMode='contain'
             style={{
               width: 30,
@@ -65,17 +29,17 @@ const CuponDetail = () => {
       <View style={{ alignItems: 'center', width: '100%', padding: '10px' }}>
         <View style={{ borderRadius: '100%', overflow: 'hidden', width: `${RFValue(100)}px`, height: `${RFValue(100)}px` }}>
           <Image 
-            source={require('../../assets/icons/home.png')}
+            source={{ uri: cupon.image || 'https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg' }}
             resizeMode='contain'
             style={{ width: '100%', height: '100%' }}
           />
 
         </View>
         <InfoContainer>
-          <Description>Número: {tests.cuponNumber}</Description>
-          <Description>Qtde. Intens: {tests.quantity}</Description>
-          <Description>Loja: {tests.cuponNumber}</Description>
-          <Description>Criação: {tests.date}</Description>
+          <Description>Número: {cupon.number}</Description>
+          <Description>Qtde. Intens: {cupon.itemsQuantity}</Description>
+          <Description>Loja: {cupon.store}</Description>
+          <Description>Criação: {cupon.createdAt}</Description>
         </InfoContainer>
       </View>
       {cupon.items && cupon?.items.map((item) => <ItemPurchase item={item}/>)} 

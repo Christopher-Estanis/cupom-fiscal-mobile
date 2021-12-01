@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://172.21.137.42:5000',
+  baseURL: 'http://172.21.136.133:5000',
   timeout: 30000
 })
 

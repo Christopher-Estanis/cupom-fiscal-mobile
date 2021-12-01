@@ -15,6 +15,7 @@ interface ICupon {
   store?: string
   createdAt?: Date
   updatedAt?: Date 
+  image?: string
   items?: {
     _id: string
     name: string

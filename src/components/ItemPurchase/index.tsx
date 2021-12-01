@@ -31,7 +31,6 @@ const ItemPurchase = ({ item }: Props): JSX.Element => {
         <Description >Valor: {item.value}</Description>
         <Description >Quantidade: {item.quantity}</Description>
       </View>
-      <View style={{ height: '100%', width: '30px', backgroundColor: '#a98980', position: 'absolute', top: '0', right: '0' }} />
     </Container>
   )
 }
