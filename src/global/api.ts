@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://172.21.136.133:5000',
+  baseURL: 'https://cupom-fiscal-staging.herokuapp.com',
   timeout: 30000
 })
 
