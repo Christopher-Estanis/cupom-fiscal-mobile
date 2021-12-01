@@ -16,15 +16,17 @@ const Routes = () => {
   console.log({ id: user.id })
 
   const handleRoute = () => {
-    if (cupon?._id) {
-      return <CuponDetail />
+    
+    if (user?.id) {
+      if (cupon?._id) {
+        return <CuponDetail />
+      }
+
+      return <AuthRoutes />
     }
 
-    // if (user?.id) {
-      return <AuthRoutes />
-    // }
 
-    // return <UnauthRoutes />
+    return <UnauthRoutes />
   }
 
   return (
